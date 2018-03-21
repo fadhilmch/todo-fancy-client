@@ -1,0 +1,528 @@
+@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500,700');
+
+
+
+body, html {
+  /* background-color: #333 !important; */
+  /* font-family: 'Trebuchet MS'; */
+
+    background-image: url("Assets/5306546-mac-wallpaper-hd.jpg");
+
+    height: 100%;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.image-cropper {
+    width: 30px;
+    height: 30px;
+    /* position: relative; */
+    overflow: hidden;
+    border-radius: 50%;
+    margin: 0;
+}
+
+img {
+    display: inline;
+    margin: 0 0;
+    height: 100%;
+    width: auto;
+}
+
+nav .navbar-nav .nav-link,
+nav .navbar-brand {
+   color: #fff;
+}
+
+button {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: none;
+	font-size: 100%;
+	vertical-align: baseline;
+	font-family: inherit;
+	font-weight: inherit;
+	color: inherit;
+	-webkit-appearance: none;
+	appearance: none;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+body {
+	font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	line-height: 1.4em;
+	/* background: #333; */
+	/* color: #4d4d4d; */
+  color: white;
+	min-width: 230px;
+	max-width: 550px;
+	margin: 0 auto !important;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-weight: 300;
+}
+
+:focus {
+	outline: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+/* ========= SIGN IN PAGE ================== */
+.signin {
+  background: rgba(0, 0, 0, 0.4);
+	margin: 40px 0 20px 0;
+  padding: 50px 0px;
+  border-radius: 15px;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+
+}
+
+.hide {
+  display: none;
+}
+
+.panel-title {
+  font-weight: lighter;
+  font-size: 40px;
+}
+
+.title {
+  margin-top: 40px;
+  width: 100%;
+  font-size: 100px;
+  font-weight: 100;
+  text-align: center;
+  color: white;
+  -webkit-text-rendering: optimizeLegibility;
+  -moz-text-rendering: optimizeLegibility;
+  text-rendering: optimizeLegibility;
+}
+
+.button-signin {
+  color: rgba(255, 255, 255, 0.8)!important;
+  display: block;
+  padding: 20px 7px;
+  font-size: 35px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.4);
+  font-weight: 300;
+  margin: 20px 0;
+}
+
+.submit {
+  font-size: 20px;
+  padding: 15px 0;
+  font-weight: 300;
+}
+
+.back {
+  color: rgba(255, 255, 255, 0.8)!important;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid rgba(255, 255, 255, 0);
+  font-size: 15px;
+  padding: 5px 10px;
+  font-weight: 300;
+}
+
+.back:hover {
+  color: rgba(255, 255, 255, 1)!important;
+}
+
+.button-signin:hover {
+  color: rgba(255, 255, 255, 1)!important;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+
+}
+
+/*  =========================================== */
+
+.todoapp {
+	/* background: #fff; */
+  background: rgba(0, 0, 0, 0.4);
+
+	margin: 100px 0 20px 0;
+	position: relative;
+	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
+	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.todoapp input::-webkit-input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+  opacity: 0.6;
+}
+
+.todoapp input::-moz-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+  opacity: 0.6;
+}
+
+.todoapp input::input-placeholder {
+	font-style: italic;
+	font-weight: 300;
+	color: #e6e6e6;
+  opacity: 0.6;
+}
+
+.todoapp h1 {
+	position: absolute;
+	top: -105px;
+	width: 100%;
+	font-size: 70px;
+	font-weight: 100;
+	text-align: center;
+	color: white;
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+}
+
+
+
+.todoapp h4 {
+	position: absolute;
+	top: -65px;
+  margin-bottom: 40px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	color: white;
+	-webkit-text-rendering: optimizeLegibility;
+	-moz-text-rendering: optimizeLegibility;
+	text-rendering: optimizeLegibility;
+}
+
+.todoapp h4 span {
+  font-size: 15px;
+
+}
+
+.quotes h4{
+  margin-top:20px;
+	width: 100%;
+	font-size: 20px;
+	font-weight: 100;
+	text-align: center;
+	color: white;
+  margin-bottom:0;
+}
+
+.quotes h3 {
+  margin-top:10px;
+  width: 100%;
+  font-weight: 100;
+  text-align: center;
+  color: white;
+  margin-bottom:20px;
+  font-size: 15px;
+}
+
+.new-todo,
+.edit {
+	position: relative;
+	margin: 0;
+	width: 100%;
+	font-size: 20px;
+	font-family: inherit;
+	font-weight: inherit;
+	line-height: 1.4em;
+	border: 0;
+	color: inherit;
+	padding: 6px;
+	border: 1px solid #999;
+	box-shadow: inset 0 -1px 5px 0 rgba(0, 0, 0, 0.2);
+	box-sizing: border-box;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+
+.new-todo {
+  color: white;
+	padding: 16px 16px 16px 60px;
+	border: none;
+	background: rgba(0, 0, 0, 0.5);
+	box-shadow: inset 0 -2px 1px rgba(0,0,0,0.03);
+}
+
+.main {
+	position: relative;
+	z-index: 2;
+	border-top: 1px solid #e6e6e6;
+
+}
+
+.todo-list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+  color: rgba(255,255,255,0.9);
+}
+
+.todo-list li {
+	position: relative;
+	font-size: 16px;
+	border-bottom: 1px dashed #fff;
+}
+
+.todo-list li:last-child {
+	border-bottom: none;
+}
+
+.todo-list li.editing {
+	border-bottom: none;
+	padding: 0;
+}
+
+.todo-list li.editing .edit {
+	display: block;
+	/* width: 506px;
+	padding: 12px 16px; */
+	/* margin: 0 0 0 43px; */
+  padding: 15px 60px 15px 55px;
+  background: rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  border:none;
+}
+
+.todo-list li.editing .view {
+	display: none;
+}
+
+.todo-list li .toggle {
+	text-align: center;
+	width: 40px;
+	/* auto, since non-WebKit browsers doesn't support input styling */
+	height: auto;
+	position: absolute;
+	top: 5px;
+	bottom: 0;
+	margin: auto 0;
+	border: none; /* Mobile Safari */
+	-webkit-appearance: none;
+	appearance: none;
+}
+
+.todo-list li .toggle:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#ededed" stroke-width="6"/></svg>');
+
+  /* background-color: rgba(165,194,92,0); */
+}
+
+.todo-list li .toggle:checked:after {
+	content: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="-10 -18 100 135"><circle cx="50" cy="50" r="50" fill="none" stroke="#bddad5" stroke-width="6"/><path fill="#5dc2af" d="M72 25L42 71 27 56l-4 4 20 20 34-52z"/></svg>');
+  /* background-color: rgba(165,194,92,1); */
+}
+
+.todo-list li label {
+	word-break: break-all;
+	padding: 15px 60px 15px 15px;
+	margin-left: 45px;
+	display: block;
+	line-height: 1.2;
+	transition: color 0.4s;
+}
+
+.todo-list li.completed label {
+	/* color: #d9d9d9; */
+  color:white;
+  opacity: 0.5;
+	text-decoration: line-through;
+
+}
+
+.todo-list li.completed{
+  background: rgba(0, 0, 0, 0.2);
+
+}
+
+.todo-list li .destroy {
+	/* display: none; */
+	position: absolute;
+	top: 0;
+	right: 10px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+	color: #cc9a9a;
+  color: white;
+	margin-bottom: 11px;
+	transition: color 0.2s ease-out;
+}
+
+.todo-list li .destroy:hover {
+	color: #af5b5e;
+}
+
+.todo-list li .destroy:after {
+	content: '×';
+}
+
+.todo-list li .starred {
+  position: absolute;
+	top: 0;
+	right: 50px;
+	bottom: 10px;
+	width: 25px;
+	height: 25px;
+	margin: auto 0;
+	font-size: 25px;
+	color: #cc9a9a;
+  color: white;
+	margin-bottom: 11px;
+	transition: color 0.2s ease-out;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.todo-list li .starred:hover{
+  color: #fafb7d;
+}
+
+.todo-list li .starred:after {
+	content: '☆';
+
+  /* background-color: rgba(165,194,92,0); */
+}
+
+.todo-list li .starred:checked:after {
+	content: '★';
+  color: #fafb7d;
+
+  /* background-color: rgba(165,194,92,1); */
+}
+
+.todo-list li:hover .destroy {
+	display: block;
+}
+
+
+.todo-list li .edit {
+	display: none;
+}
+
+.todo-list li.editing:last-child {
+	margin-bottom: -1px;
+}
+
+.footer {
+	color: white;
+	padding: 10px 15px;
+	height: 40px;
+	text-align: center;
+	border-top: 1px solid #e6e6e6;
+  text-decoration: none;
+}
+
+.subfooter {
+	color: white;
+	padding: 10px 15px;
+	height: 40px;
+	text-align: center;
+	border-top: 1px dashed #e6e6e6;
+  text-decoration: none;
+}
+
+
+.actions {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+}
+
+.actions li {
+	display: inline;
+}
+
+.actions li a {
+	color: inherit;
+	margin: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+  opacity: 0.8;
+	/* border: 1px solid transparent;
+	border-radius: 3px; */
+  cursor: pointer;
+}
+
+.actions li a:hover {
+	/* border-color: rgba(255, 255, 255, 0.4); */
+  /* text-decoration: underline !important; */
+  opacity: 1;
+
+}
+
+.actions li a.selected {
+	border-color: rgba(175, 47, 47, 0.2);
+}
+
+
+.filters {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	position: absolute;
+	right: 0;
+	left: 0;
+}
+
+.filters li {
+	display: inline;
+}
+
+.filters li a {
+	color: inherit;
+	margin: 3px;
+	padding: 3px 7px;
+	text-decoration: none;
+	border: 1px solid transparent;
+	border-radius: 3px;
+  cursor: pointer;
+
+}
+
+.filters li a:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.filters li a.selected {
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.logout{
+  color: rgba(255, 255, 255, 0.8)!important;
+  padding: 3px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  cursor: pointer;
+}
+.logout:hover{
+  color: rgba(255, 255, 255, 1)!important;
+  padding: 3px 7px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 3px;
+}
