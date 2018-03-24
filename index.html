@@ -22,23 +22,26 @@
       <div class="content">
         <login-panel :userlogin="userLogin" @login="login" @defaultpanel="toggleLoginState('default')" :class="{hide: !(loginState === 'login')}"></login-panel>
         <signup-panel :usersignup="userCreate" @signup="signup" @defaultpanel="toggleLoginState('default')" :class="{hide: !(loginState === 'signup')}"></signup-panel>
-        <default-panel @signuppanel="toggleLoginState('signup')" @loginpanel="toggleLoginState('login')" :class="{hide: !(loginState === 'default')}"></default-panel>
+        <default-panel @loginfb='loginfb' @signuppanel="toggleLoginState('signup')" @loginpanel="toggleLoginState('login')" :class="{hide: !(loginState === 'default')}"></default-panel>
       </div><br>
       <quotesbar :title='true' :quotesvalue="quotes"></quotesbar>
 
     </div>
 
     <div class="inner-page" v-if="userData.token!==null" v-cloak>
-      <navbar :userdata="userData" @logout="logout"></navbar>
+      <!-- <navbar :userdata="userData" @logout="logout"></navbar> -->
+      <navbar :userdata="userData" ></navbar>
+      
+
+      <header class='header'>
+        <h1 class="animated fadeInDown">Hello, {{firstName}}</h1>
+        <h4>
+        </h4>
+      </header>
 
       <div class="todoapp animated zoomIn">
-        <header>
-          <h1 class="">Hello, {{firstName}}</h1>
-          <h4>
-          </h4>
-          <input class="new-todo" autofocus placeholder="What you want to do?" v-model="newTodo" @keyup.enter="addTodo()">
-        </header>
-
+        <input class="new-todo" autofocus placeholder="What you want to do?" v-model="newTodo" @keyup.enter="addTodo()">
+        
         <div class="main">
           <ul class='todo-list'>
             <li class='todo animated fadeInDown' v-for='todo in filteredTodos' onloadeddata="" :class="{ completed: todo.status, editing: todo == editedTodo }">

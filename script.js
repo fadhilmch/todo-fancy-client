@@ -2,6 +2,10 @@ const $http = axios.create({
   baseURL: 'http://localhost:3000/api'
 })
 
+function buttonPush () {
+  console.log('button pushed')
+}
+
 
 window.onload = function () {
   var app = new Vue({
@@ -126,9 +130,14 @@ window.onload = function () {
         })
       },
       logout: function () {
+        FB.logout(function(response) {
+          console.log('Logout from facebook')
+          console.log(response)
+          statusChangeCallback(response)
+        })
         localStorage.removeItem('token');
         localStorage.removeItem('id');
-        location.reload();
+        // location.reload();
       },
       addTodo: function () {
         let value = this.newTodo && this.newTodo.trim();
@@ -338,6 +347,11 @@ window.onload = function () {
       toggleLoginState: function (state) {
         console.log(state)
         this.loginState = state;
+      },
+
+      loginfb () {
+        console.log('masuk')
+        checkLoginState();
       }
 
     },

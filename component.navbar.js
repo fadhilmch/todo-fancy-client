@@ -5,7 +5,7 @@ Vue.component('navbar', {
         <ul class="navbar-nav mr-auto">
         </ul>
         <span class="navbar-text">
-          <a  v-if="userdata.token!==null" @click="logout" class="logout" >Logout</a>
+          <a  v-if="userdata.token!==null" onclick="logout()" class="logout" >Logout</a>
         </span>
     </nav>
   `,

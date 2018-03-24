@@ -7,7 +7,7 @@ Vue.component('DefaultPanel', {
           <div class="choose-signin">
             <input @click="login" class="button-signin btn-block" type="submit" value="Login">
             <input @click="signup" class="button-signin btn-block" type="submit" value="Sign Up">
-            <div class="fb-login-button" data-width="200" data-max-rows="1" data-size="large" data-button-type="login_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+            <button class='button-facebook btn-block' scope="public_profile,email" onclick='loginfb();'>Login with Facebook</button>
           </div>
         </div>
       </div>
@@ -25,6 +25,9 @@ Vue.component('DefaultPanel', {
     },
     signup: function () {
       this.$emit('signuppanel');
+    },
+    loginfb: function () {
+      this.$emit('loginfb');
     }
   }
 })
