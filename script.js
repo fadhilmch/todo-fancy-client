@@ -1,15 +1,16 @@
+const $http = axios.create({
+  baseURL: 'http://localhost:3000/api'
+})
+
+
 window.onload = function () {
-
-
   var app = new Vue({
     el: '#app',
     data: {
       userData: {
-        id: localStorage.getItem('userId'),
+        id: localStorage.getItem('id'),
         name: localStorage.getItem('name'),
-        email: localStorage.getItem('email'),
         token: localStorage.getItem('token'),
-        picture: localStorage.getItem('picture'),
       },
       todos: [],
       newTodo : "",
@@ -19,8 +20,16 @@ window.onload = function () {
       newTags : [],
       quotes : {},
       loginState : 'default',
-
-
+      userLogin: {
+        identity:'',
+        password:''
+      },
+      userCreate: {
+        name: '',
+        password: '',
+        email: '',
+        username: ''
+      }
     },
     computed: {
       filteredTodos: function(){
@@ -64,6 +73,7 @@ window.onload = function () {
         return count;
       },
       firstName: function(){
+        // return this.userData.name;
         return this.userData.name.split(' ')[0];
       }
 
@@ -72,20 +82,80 @@ window.onload = function () {
 
     },
     methods: {
+      login: function () {
+        $http({
+          method: 'post',
+          url: '/users/login',
+          data: {
+            username : this.userLogin.identity,
+            email : this.userLogin.email,
+            password : this.userLogin.password
+          }
+        })
+        .then(response => {
+          console.log(`Response Login : ${JSON.stringify(response)}`);
+          localStorage.setItem('token', response.data.data.token);
+          localStorage.setItem('id', response.data.data.id);
+          localStorage.setItem('name', response.data.data.name);
+          this.userLogin.identity = '';
+          this.userLogin.password = '';
+          location.reload();
+        })
+      },
+      signup: function () {
+        $http({
+          method: 'post',
+          url: '/users/signup',
+          data: {
+            username : this.userSignUp.username,
+            email : this.userSignUp.email,
+            password : this.userSignUp.password,
+            name : this.userSignUp.name
+          }
+        })
+        .then(response => {
+          console.log(`Response Signup : ${JSON.stringify(response)}`);
+          localStorage.setItem('token', response.data.data.token);
+          localStorage.setItem('name', response.data.data.name);
+          localStorage.setItem('id', response.data.data.id);
+          this.userSignUp.name = '';
+          this.userSignUp.password = '';
+          this.userSignUp.username = '';
+          this.userSignUp.email = '';
+          location.reload();
+        })
+      },
+      logout: function () {
+        localStorage.removeItem('token');
+        localStorage.removeItem('id');
+        location.reload();
+      },
       addTodo: function () {
         let value = this.newTodo && this.newTodo.trim();
         if(!value)
           return
-        axios({
+          // testing axios instances ======================>
+        // axios({
+        //   method: 'post',
+        //   url: `http://localhost:3000/api/todos/user/${this.userData.id}`,
+        //   data: {
+        //     text: value,
+        //     userId: this.userData.id,
+        //   },
+        //   headers: {
+        //     token: this.userData.token,
+        //   }
+        // })
+        $http({
           method: 'post',
-          url: `http://localhost:3000/api/todos/user/${this.userData.id}`,
+          url: `/todos/user/${this.userData.id}`,
           data: {
             text: value,
             userId: this.userData.id,
           },
           headers: {
             token: this.userData.token,
-          }
+          } 
         })
           .then(data => {
             this.loadTodo();
@@ -101,9 +171,9 @@ window.onload = function () {
       },
 
       statusToggle: function(todo){
-        axios({
+        $http({
           method: 'put',
-          url: `http://localhost:3000/api/todos/${todo._id}`,
+          url: `/todos/${todo._id}`,
           data: {
             status: todo.status,
           },
@@ -124,9 +194,9 @@ window.onload = function () {
       },
 
       starredToggle: function(todo) {
-        axios({
+        $http({
           method: 'put',
-          url: `http://localhost:3000/api/todos/${todo._id}`,
+          url: `/todos/${todo._id}`,
           data: {
             starred: todo.starred,
           },
@@ -147,9 +217,9 @@ window.onload = function () {
       },
 
       deleteTodo: function(todo) {
-        axios({
+        $http({
           method: 'delete',
-          url: `http://localhost:3000/api/todos/${todo._id}`,
+          url: `/todos/${todo._id}`,
           headers: {
             token: this.userData.token,
           }
@@ -177,9 +247,9 @@ window.onload = function () {
           this.deleteTodo(todo);
         }
         else{
-          axios({
+          $http({
             method: 'put',
-            url: `http://localhost:3000/api/todos/${todo._id}`,
+            url: `/todos/${todo._id}`,
             data: {
               text: todo.text,
             },
@@ -209,9 +279,9 @@ window.onload = function () {
 
 
       loadTodo: function() {
-        axios({
+        $http({
           method: 'get',
-          url: `http://localhost:3000/api/todos/user/${this.userData.id}`,
+          url: `/todos/user/${this.userData.id}`,
           headers: {
             token: this.userData.token
           }
@@ -268,11 +338,7 @@ window.onload = function () {
       toggleLoginState: function (state) {
         console.log(state)
         this.loginState = state;
-      },
-
-      logout: function () {
-
-      },
+      }
 
     },
     directives: {
@@ -283,7 +349,10 @@ window.onload = function () {
       },
     },
     created: function(){
-      this.loadTodo();
+      if(this.userData.token!==null){
+        this.loadTodo();
+      }
+
       axios({
         method: 'get',
         url: 'https://favqs.com/api/qotd',

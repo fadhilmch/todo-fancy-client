@@ -5,10 +5,11 @@ Vue.component('navbar', {
         <ul class="navbar-nav mr-auto">
         </ul>
         <span class="navbar-text">
-          <a @click="logout" class="logout" >Logout</a>
+          <a  v-if="userdata.token!==null" @click="logout" class="logout" >Logout</a>
         </span>
     </nav>
   `,
+  props:['userdata'],
   data: function () {
     return {
 

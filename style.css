@@ -1,6 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 @import url('https://fonts.googleapis.com/css?family=Roboto:500,700');
 
+[v-cloak] {
+  display: none;
+}
+
+[v-cloak].sk-folding-cube {
+  display: block;
+}
+
 
 
 body, html {
@@ -117,7 +125,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 5px;
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: rgba(0, 0, 0, 0.7);
   font-weight: 300;
   margin: 20px 0;
 }
@@ -144,9 +152,18 @@ body {
 
 .button-signin:hover {
   color: rgba(255, 255, 255, 1)!important;
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.6);
   border: 1px solid rgba(255, 255, 255, 0.8);
 
+}
+
+.choose-signin {
+  align-items: center;
+}
+
+.fb-login-button {
+  margin-left: 10vw;
+  margin-right: 10vw;
 }
 
 /*  =========================================== */
@@ -220,7 +237,7 @@ body {
   margin-top:20px;
 	width: 100%;
 	font-size: 20px;
-	font-weight: 100;
+	font-weight: 125;
 	text-align: center;
 	color: white;
   margin-bottom:0;
@@ -229,12 +246,13 @@ body {
 .quotes h3 {
   margin-top:10px;
   width: 100%;
-  font-weight: 100;
+  font-weight: 125;
   text-align: center;
   color: white;
   margin-bottom:20px;
   font-size: 15px;
 }
+
 
 .new-todo,
 .edit {
@@ -383,14 +401,14 @@ body {
   position: absolute;
 	top: 0;
 	right: 50px;
-	bottom: 10px;
+	bottom: 0;
 	width: 25px;
 	height: 25px;
 	margin: auto 0;
 	font-size: 25px;
 	color: #cc9a9a;
   color: white;
-	margin-bottom: 11px;
+	margin-bottom: 14px;
 	transition: color 0.2s ease-out;
   -webkit-appearance: none;
   appearance: none;

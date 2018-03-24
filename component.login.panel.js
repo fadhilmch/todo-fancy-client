@@ -1,6 +1,6 @@
 Vue.component('LoginPanel', {
   template: `
-  <div class="container signin">
+  <div class="container signin animated fadeIn">
     <div class="row">
       <div class="col-10 mx-auto">
         <div class="panel panel-default">
@@ -11,17 +11,15 @@ Vue.component('LoginPanel', {
             <br>
           </div>
           <div class="panel-body">
-            <form accept-charset="UTF-8" role="form">
               <fieldset>
                 <div class="form-group">
-                  <input class="form-control" placeholder="E-mail" name="email" type="text">
+                  <input class="form-control" placeholder="E-mail / Username" name="email" type="text" v-model="userlogin.identity">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                  <input class="form-control" placeholder="Password" name="password" type="password" v-model="userlogin.password">
                 </div>
-                <input class="submit button-signin btn-block" type="submit" value="Login">
+                <input class="submit button-signin btn-block" type="submit" value="Login" @click="login">
               </fieldset>
-            </form>
             <input @click='defaultpanel' class="back" type="submit" value="Back">
           </div>
         </div>
@@ -29,6 +27,7 @@ Vue.component('LoginPanel', {
     </div>
   </div>
   `,
+  props:['userlogin'],
   data: function () {
     return {
 
@@ -37,6 +36,9 @@ Vue.component('LoginPanel', {
   methods: {
     defaultpanel: function () {
       this.$emit('defaultpanel')
+    },
+    login: function () {
+      this.$emit('login');
     }
   }
 })
