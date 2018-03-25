@@ -9,6 +9,7 @@
   display: block;
 }
 
+
 body, html {
   /* background-color: #333 !important; */
   /* font-family: 'Trebuchet MS'; */
@@ -187,6 +188,19 @@ body {
 	position: relative;
 	box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2),
 	            0 25px 50px 0 rgba(0, 0, 0, 0.1);
+}
+
+.swal-button {
+  padding: 7px 19px;
+  border-radius: 2px;
+  background-color: black;
+	font-size: 12px;
+	color: white;
+  text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.3);
+}
+
+.swal-overlay {
+  background-color: rgba(0, 0, 0, 0.6)
 }
 
 .todoapp input::-webkit-input-placeholder {

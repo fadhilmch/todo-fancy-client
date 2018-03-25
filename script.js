@@ -15,6 +15,7 @@ window.onload = function () {
         id: localStorage.getItem('id'),
         name: localStorage.getItem('name'),
         token: localStorage.getItem('token'),
+        email: localStorage.getItem('email')
       },
       todos: [],
       newTodo : "",
@@ -101,6 +102,7 @@ window.onload = function () {
           localStorage.setItem('token', response.data.data.token);
           localStorage.setItem('id', response.data.data.id);
           localStorage.setItem('name', response.data.data.name);
+          localStorage.setItem('email', response.data.data.email); 
           this.userLogin.identity = '';
           this.userLogin.password = '';
           location.reload();
@@ -111,21 +113,22 @@ window.onload = function () {
           method: 'post',
           url: '/users/signup',
           data: {
-            username : this.userSignUp.username,
-            email : this.userSignUp.email,
-            password : this.userSignUp.password,
-            name : this.userSignUp.name
+            username : this.userCreate.username,
+            email : this.userCreate.email,
+            password : this.userCreate.password,
+            name : this.userCreate.name
           }
         })
         .then(response => {
           console.log(`Response Signup : ${JSON.stringify(response)}`);
-          localStorage.setItem('token', response.data.data.token);
-          localStorage.setItem('name', response.data.data.name);
-          localStorage.setItem('id', response.data.data.id);
-          this.userSignUp.name = '';
-          this.userSignUp.password = '';
-          this.userSignUp.username = '';
-          this.userSignUp.email = '';
+          localStorage.setItem('token', response.data.token);
+          localStorage.setItem('name', response.data.name);
+          localStorage.setItem('id', response.data.id);
+          localStorage.setItem('email', response.data.email);
+          this.userCreate.name = '';
+          this.userCreate.password = '';
+          this.userCreate.username = '';
+          this.userCreate.email = '';
           location.reload();
         })
       },
@@ -143,18 +146,6 @@ window.onload = function () {
         let value = this.newTodo && this.newTodo.trim();
         if(!value)
           return
-          // testing axios instances ======================>
-        // axios({
-        //   method: 'post',
-        //   url: `http://localhost:3000/api/todos/user/${this.userData.id}`,
-        //   data: {
-        //     text: value,
-        //     userId: this.userData.id,
-        //   },
-        //   headers: {
-        //     token: this.userData.token,
-        //   }
-        // })
         $http({
           method: 'post',
           url: `/todos/user/${this.userData.id}`,
@@ -277,6 +268,30 @@ window.onload = function () {
               console.log(`${JSON.stringify(err.response)}`)
             })
         }
+      },
+
+      sendEmail: function () {
+        $http({
+          method: 'post',
+          url: `/todos/user/${this.userData.id}/send_email`,
+          data: {
+            email: this.userData.email
+          },
+          headers: {
+            token: this.userData.token
+          } 
+        })
+          .then(data => {
+            //Notif Email
+            swal({
+              title: "#todo sent!",
+              text: "Check your email to find your #todo",
+              icon: "success",
+            });
+          })
+          .catch(err => {
+            console.log(`${JSON.stringify(err.response)}`)
+          })
       },
 
       cancelEdit: function(todo) {

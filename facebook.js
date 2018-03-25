@@ -18,6 +18,7 @@ function statusChangeCallback(response) {
           localStorage.setItem('token', data.data.token);
           localStorage.setItem('id', data.data._id);
           localStorage.setItem('name', data.data.name);
+          localStorage.setItem('email', data.data.email);
           // location.reload();
         })
         .catch(err => {
@@ -51,7 +52,8 @@ function statusChangeCallback(response) {
     localStorage.removeItem('token');
     localStorage.removeItem('id');
     localStorage.removeItem('name');
-    location.reload()
+    localStorage.removeItem('email');
+    location.reload();
   }
 
   function loginfb () {
@@ -72,6 +74,7 @@ function statusChangeCallback(response) {
           localStorage.setItem('token', data.data.token);
           localStorage.setItem('id', data.data._id);
           localStorage.setItem('name', data.data.name);
+          localStorage.setItem('email', data.data.email);
           location.reload();
         })
         .catch(err => {
