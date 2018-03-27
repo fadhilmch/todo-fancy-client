@@ -1,5 +1,6 @@
 const $http = axios.create({
-  baseURL: 'http://localhost:3000/api'
+  // baseURL: 'http://localhost:3000/api'
+  baseURL: 'http://todo.server.fadhilmch.com/api'
 })
 
 function buttonPush () {
@@ -107,6 +108,15 @@ window.onload = function () {
           this.userLogin.password = '';
           location.reload();
         })
+        .catch(response => {
+          this.userLogin.identity = '';
+          this.userLogin.password = ''; 
+          swal({
+            title: "Wrong email/username/password!",
+            text: "Please Sign up first if you don't have account",
+            icon: "error",
+          });
+        })
       },
       signup: function () {
         $http({
@@ -131,6 +141,17 @@ window.onload = function () {
           this.userCreate.email = '';
           location.reload();
         })
+        .catch(response => {
+          this.userCreate.name = '';
+          this.userCreate.password = '';
+          this.userCreate.username = '';
+          this.userCreate.email = '';
+          swal({
+            title: "Email/Username already registered!",
+            text: "Please login if you already have account or sign up if you don't have account",
+            icon: "error",
+          });
+        })
       },
       logout: function () {
         FB.logout(function(response) {
@@ -140,6 +161,8 @@ window.onload = function () {
         })
         localStorage.removeItem('token');
         localStorage.removeItem('id');
+        localStorage.removeItem('name');
+        localStorage.removeItem('email');
         // location.reload();
       },
       addTodo: function () {
@@ -291,6 +314,11 @@ window.onload = function () {
           })
           .catch(err => {
             console.log(`${JSON.stringify(err.response)}`)
+            swal({
+              title: "Problem on Sending Email",
+              text: "Sorry for this problem",
+              icon: "error",
+            });
           })
       },
 

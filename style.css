@@ -415,6 +415,21 @@ body {
 	transition: color 0.2s ease-out;
 }
 
+.todo-list li .edit {
+	/* display: none; */
+	position: absolute;
+	top: 0;
+	right: 40px;
+	bottom: 0;
+	width: 40px;
+	height: 40px;
+	margin: auto 0;
+	font-size: 30px;
+  color: white;
+	margin-bottom: 11px;
+	transition: color 0.2s ease-out;
+}
+
 .todo-list li .destroy:hover {
 	color: #af5b5e;
 }
